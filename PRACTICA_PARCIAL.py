@@ -1,10 +1,6 @@
-# paso 1: importar tkinter y crear la ventana prinipal con root,
-# definirle los atributos
-# e invocar el metodo mainloop() siempre al final de la app
 import tkinter as tk
 from tkinter import messagebox, simpledialog
 
-# Variables globales
 usuario_valido = "profe"
 contraseña_valida = "1234"
 actividades_vars = []
@@ -15,7 +11,6 @@ ventana.title("Login")
 ventana.geometry("700x500")
 ventana.configure(bg="alice blue")
 
-# Frame del login
 login_frame = tk.Frame(ventana, bg="LightBlue2", width=300, height=200)
 login_frame.pack(pady=40)
 login_frame.pack_propagate(False)
@@ -43,7 +38,7 @@ def verificar_login():
 tk.Button(login_frame, text="Ingresar", bg="white", fg="black",
           font=("Georgia", 10), command=verificar_login).pack(pady=15)
 
-# ---------------- Ventana principal tras login ----------------
+# Ventana principal dsp del login 
 
 def mostrar_principal():
     ventana.title("Lista de Actividades")
@@ -152,52 +147,4 @@ def borrar_todas_actividades():
         actividades_vars.clear()
         mostrar_actividades()
 
-# Ejecutar aplicación
 ventana.mainloop()
-
-
-# PASO 8:
-# Crear función mostrar_inicio() que muestra botones de acceso rápido:
-#     - "Ver Actividades" y "Agregar Nueva"
-#     - Esta función se llama desde mostrar_principal()
-
-# PASO 9:
-# Crear función mostrar_entrada_actividad():
-#     - Mostrar un Entry para ingresar nueva actividad
-#     - Botón "Agregar" que:
-#         - Valide que no esté vacío
-#         - Agregue la actividad a la lista actividad_vars con BooleanVar
-#         - Recargue la vista de actividades
-
-# PASO 10:
-# Crear función mostrar_actividades():
-#     - Mostrar un listado de actividades (con scroll si son muchas)
-#     - Si la lista está vacía, cargar las actividades_ficticias por defecto
-#     - Para cada actividad:
-#         - Mostrar un Checkbutton con su estado
-#         - Botón "Editar" y "Eliminar" al lado de cada una
-
-# PASO 11:
-# Crear función editar_actividad(indice):
-#     - Usar simpledialog para pedir nuevo texto
-#     - Reemplazar la actividad en la lista y actualizar vista
-
-# PASO 12:
-# Crear función eliminar_actividad(indice):
-#     - Preguntar confirmación con messagebox
-#     - Eliminar de la lista si se confirma
-
-# PASO 13:
-# Crear función borrar_todas_actividades():
-#     - Preguntar confirmación
-#     - Vaciar actividad_vars si se confirma
-#     - Actualizar la vista
-
-# PASO 14:
-# Crear función limpiar_contenido():
-#     - Eliminar todos los widgets del frame_contenido
-#     - Usarla antes de cargar vistas nuevas (opcional)
-
-# PASO 15:
-# Probar toda la app paso por paso para corregir errores.
-# Desde login hasta gestión completa de actividades.
